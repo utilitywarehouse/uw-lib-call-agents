@@ -1,0 +1,35 @@
+{
+  "name": "uw-lib-call-agents",
+  "version": "1.0.0",
+  "description": "Call agent servers",
+  "author": "web-systems@utilitywarehouse.co.uk",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest tests/*",
+    "test-coverage": "jest tests/* --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utilitywarehouse/uw-lib-call-agents.git"
+  },
+  "bugs": {
+    "url": "https://github.com/utilitywarehouse/uw-lib-call-agents/issues"
+  },
+  "homepage": "https://github.com/utilitywarehouse/uw-lib-call-agents#readme",
+  "dependencies": {
+    "socket.io": "^2.0.3",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "chai-as-promised": "^7.1.1",
+    "jest": "^20.0.4",
+    "sinon": "^3.0.0",
+    "sinon-chai": "^2.12.0"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./tests/.bootstrap.js",
+    "verbose": true
+  }
+}
