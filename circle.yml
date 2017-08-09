@@ -1,0 +1,17 @@
+machine:
+  node:
+    version: 7.1.0
+  services:
+    - docker
+
+dependencies:
+  pre:
+    - npm install -g yarn
+  override:
+    - make ci-install
+  cache_directories:
+    - "~/.yarn-cache"
+
+test:
+  override:
+    - make test
