@@ -50,11 +50,11 @@ describe('SocketIoServer', () => {
     socket.emit.should.have.been.calledWith('call.ended');
   })
 
-  it('registers socket when agent has started', () => {
+  it('registers socket when agent has connected', () => {
     const agentId = 'A3';
     const socket = mockSocketIoSocket();
 
-    agentServer._driver.emit('agent.started', {agentId, socket});
+    agentServer._driver.emit('agent.connected', {agentId, socket});
 
     agentServer._getSocket(agentId).should.equal(socket);
   })

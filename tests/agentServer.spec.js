@@ -44,16 +44,16 @@ describe('AgentServer', () => {
     serverCreatedByDriver.listen.should.have.been.calledWith(1234);
   })
 
-  it('emits agent.started when agent has started', (done) => {
+  it('emits agent.connected when agent has connected', (done) => {
     const agentId = 'A0';
     const socket = {};
 
-    agentServer.on('agent.started', (args) => {
+    agentServer.on('agent.connected', (args) => {
       args.should.equal('A0');
       done();
     });
 
-    driver.emit('agent.started', ({agentId, socket}));
+    driver.emit('agent.connected', ({agentId, socket}));
   })
 
   it('emits agent.ready when agent has become ready', (done) => {
@@ -68,15 +68,15 @@ describe('AgentServer', () => {
     driver.emit('agent.ready', ({agentId, address}));
   })
 
-  it('emits agent.ended when agent has disconnected', (done) => {
+  it('emits agent.disconnected when agent has disconnected', (done) => {
     const agentId = 'A2';
 
-    agentServer.on('agent.ended', (args) => {
+    agentServer.on('agent.disconnected', (args) => {
       args.should.equal('A2');
       done();
     });
 
-    driver.emit('agent.ended', agentId);
+    driver.emit('agent.disconnected', agentId);
   })
 
 })

@@ -6,11 +6,11 @@ class SocketServer extends CallAgentServer {
     super(driver);
     this._socketRegistry = new Map();
 
-    this._driver.on('agent.started', ({agentId, socket}) => {
+    this._driver.on('agent.connected', ({agentId, socket}) => {
       this._registerSocket(agentId, socket);
     });
 
-    this._driver.on('agent.ended', (agentId) => {
+    this._driver.on('agent.disconnected', (agentId) => {
       this._unregisterSocket(agentId);
     });
   }

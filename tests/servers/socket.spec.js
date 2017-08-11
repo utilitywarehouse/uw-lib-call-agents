@@ -16,22 +16,22 @@ describe('SocketServer', () => {
     agentServer._socketRegistry.size.should.equal(0);
   })
 
-  it('registers socket when agent has started', () => {
-    driver.emit('agent.started', {agentId: 'A1', socket: 'socket'});
+  it('registers socket when agent has connected', () => {
+    driver.emit('agent.connected', {agentId: 'A1', socket: 'socket'});
 
     agentServer._socketRegistry.size.should.equal(1);
     agentServer._getSocket('A1').should.equal('socket');
 
-    driver.emit('agent.started', {agentId: 'A2', socket: 'socket2'});
+    driver.emit('agent.connected', {agentId: 'A2', socket: 'socket2'});
 
     agentServer._socketRegistry.size.should.equal(2);
     agentServer._getSocket('A2').should.equal('socket2');
   })
 
-  it('unregisters socket when agent has ended', () => {
-    driver.emit('agent.started', {agentId: 'A1', socket: 'socket'});
-    driver.emit('agent.started', {agentId: 'A2', socket: 'socket2'});
-    driver.emit('agent.ended', 'A1');
+  it('unregisters socket when agent has disconnected', () => {
+    driver.emit('agent.connected', {agentId: 'A1', socket: 'socket'});
+    driver.emit('agent.connected', {agentId: 'A2', socket: 'socket2'});
+    driver.emit('agent.disconnected', 'A1');
 
     agentServer._socketRegistry.size.should.equal(1);
     expect(agentServer._getSocket('A1')).to.be.undefined;

@@ -6,17 +6,17 @@ class CallAgentServer extends EventEmitter {
     super();
     this._driver = driver;
 
-    this._driver.on('agent.started', (args) => {
+    this._driver.on('agent.connected', (args) => {
       const { agentId } = args;
-      this.emit('agent.started', agentId)
+      this.emit('agent.connected', agentId)
     });
 
     this._driver.on('agent.ready', ({agentId, address}) => {
       this.emit('agent.ready', {agentId, address});
     })
 
-    this._driver.on('agent.ended', (agentId) => {
-      this.emit('agent.ended', agentId);
+    this._driver.on('agent.disconnected', (agentId) => {
+      this.emit('agent.disconnected', agentId);
     })
   }
 
