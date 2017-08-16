@@ -79,4 +79,16 @@ describe('AgentServer', () => {
     driver.emit('agent.disconnected', agentId);
   })
 
+  it('emits call.termination.requested when agent requested to terminate the call', (done) => {
+    const agentId = 'A3';
+
+    agentServer.on('call.termination.requested', (args) => {
+      args.should.eql({ agentId: 'A3' });
+      done();
+    });
+
+    driver.emit('call.termination.requested', ({agentId }));
+  })
+
+
 })
