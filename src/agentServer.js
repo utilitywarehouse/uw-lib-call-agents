@@ -18,6 +18,11 @@ class CallAgentServer extends EventEmitter {
     this._driver.on('agent.disconnected', (agentId) => {
       this.emit('agent.disconnected', agentId);
     })
+    
+    this._driver.on('call.termination.requested', (agentId) => {
+      this.emit('call.termination.requested', agentId);
+    })
+
   }
 
   emitCallBooked(agentId, callId) {

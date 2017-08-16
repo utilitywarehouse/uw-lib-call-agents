@@ -22,6 +22,9 @@ class SocketIoDriver extends CallAgentDriver {
       socket.on('disconnect', () => {
         this.emit('agent.disconnected', agentId);
       });
+      socket.on('call.termination.requested', () => {
+        this.emit('call.termination.requested', agentId);
+      });
 
       this.emit('agent.connected', {agentId, socket});
     });
