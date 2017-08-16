@@ -2,10 +2,13 @@ export SHELL = /bin/bash
 
 # TESTS
 
-test:
+yarn:
+	yarn install
+
+test: yarn
 	yarn test
 
-test-coverage:
+test-coverage: yarn
 	yarn test-coverage
 
 # CIRCLE INTEGRATION
