@@ -1,5 +1,8 @@
 export SHELL = /bin/bash
 
+install:
+	yarn install
+
 # TESTS
 
 test:
