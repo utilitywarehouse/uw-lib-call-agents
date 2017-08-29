@@ -32,9 +32,9 @@ describe('AgentServer', () => {
     driver = mockAgentDriver(serverCreatedByDriver);
     agentServer = new AgentServer(driver);
 
-    agentServer.emitCallBooked = (agentId, callId) => {};
-    agentServer.emitCallBridged = (agentId, callId) => {};
-    agentServer.emitCallEnded = (agentId, callId) => {};
+    agentServer.acknowledgeCallBooked = (agentId, callId) => {};
+    agentServer.acknowledgeCallBridged = (agentId, callId) => {};
+    agentServer.acknowledgeCallEnded = (agentId, callId) => {};
   })
 
   it('listens for agents on given port when started', async () => {

@@ -7,17 +7,17 @@ class SocketIoServer extends SocketServer {
     super(new SocketIoDriver());
   }
 
-  emitCallBooked(agentId, callId) {
+  acknowledgeCallBooked(agentId, callId) {
     const socket = this._getSocket(agentId);
     socket.emit('call.booked', callId);
   }
 
-  emitCallBridged(agentId, callId) {
+  acknowledgeCallBridged(agentId, callId) {
     const socket = this._getSocket(agentId);
     socket.emit('call.bridged');
   }
 
-  emitCallEnded(agentId, callId) {
+  acknowledgeCallEnded(agentId, callId) {
     const socket = this._getSocket(agentId);
     socket.emit('call.ended');
   }

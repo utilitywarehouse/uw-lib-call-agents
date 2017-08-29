@@ -25,15 +25,15 @@ class CallAgentServer extends EventEmitter {
 
   }
 
-  emitCallBooked(agentId, callId) {
+  acknowledgeCallBooked(agentId, callId) {
     throw new Error('Not implemented');
   }
 
-  emitCallBridged(agentId, callId) {
+  acknowledgeCallBridged(agentId, callId) {
     throw new Error('Not implemented');
   }
 
-  emitCallEnded(agentId, callId) {
+  acknowledgeCallEnded(agentId, callId) {
     throw new Error('Not implemented');
   }
 

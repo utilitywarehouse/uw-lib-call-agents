@@ -23,7 +23,7 @@ describe('SocketIoServer', () => {
     const socket = mockSocketIoSocket();
     agentServer._registerSocket(agentId, socket);
 
-    agentServer.emitCallBooked(agentId, callId);
+    agentServer.acknowledgeCallBooked(agentId, callId);
 
     socket.emit.should.have.been.calledWith('call.booked', 'C0');
   })
@@ -34,7 +34,7 @@ describe('SocketIoServer', () => {
     const socket = mockSocketIoSocket();
     agentServer._registerSocket(agentId, socket);
 
-    agentServer.emitCallBridged(agentId, callId);
+    agentServer.acknowledgeCallBridged(agentId, callId);
 
     socket.emit.should.have.been.calledWith('call.bridged');
   })
@@ -45,7 +45,7 @@ describe('SocketIoServer', () => {
     const socket = mockSocketIoSocket();
     agentServer._registerSocket(agentId, socket);
 
-    agentServer.emitCallEnded(agentId, callId);
+    agentServer.acknowledgeCallEnded(agentId, callId);
 
     socket.emit.should.have.been.calledWith('call.ended');
   })
