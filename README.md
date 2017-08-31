@@ -43,7 +43,4 @@ agentServer.on('agent.connected', (agentId) => {
 });  
 ```
 
-# Ready examples
-A working example can be found here:
-https://github.com/utilitywarehouse/uw-callqueue-framework/blob/master/examples/index.js
 
